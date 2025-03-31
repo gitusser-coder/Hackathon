@@ -6,12 +6,12 @@
 - **Projektname**: A (Digital) Family Business
 - **Gruppennummer**: Gruppe 6.1.
 - **Namen der Gruppenmitglieder und deren Verantwortlichkeiten**:
-  * Marcel Muntaner Köhl, 1351006, Informationsrecherche und Dokumentation
-  * Finn Schmid, 1467828, Backend, Honeypot, dokumentiert             
-  * Shpend Shaqiri, 1434208, Login-System, Token-System, Backend, dokumentiert und formatiert      
-  * Melina Gehlen, 1446003, Design von der Website, Implementierung von Deaddrop-System, Kalender und Forum, dokumentiert 
-  * Darius Haghighi Najafabadi, 1349955, Projektleiter, Backend, Frontend, Blockchain, Apache2, MariaDB, Wordpress, SSH, Killswitch, dokumentiert und formatiert
-  * Jakob Kämmerer, 1471621, Backend, Honeypot, SSH, Killswitch, dokumentiert und formatiert
+  * Marcel Montaner, 000000, Informationsrecherche und Dokumentation
+  * Finn Schmitz, 000000, Backend, Honeypot, dokumentiert             
+  * Shpend Shaqitira, 000000, Login-System, Token-System, Backend, dokumentiert und formatiert      
+  * Melissa Gehl, 00000, Design von der Website, Implementierung von Deaddrop-System, Kalender und Forum, dokumentiert 
+  * Darius Haghighi Najafabadi, 1349455, Projektleiter, Backend, Frontend, Blockchain, Apache2, MariaDB, Wordpress, SSH, Killswitch, dokumentiert und formatiert
+  * Jakub Kämmer, 00000, Backend, Honeypot, SSH, Killswitch, dokumentiert und formatiert
 
 -----------------------
 
