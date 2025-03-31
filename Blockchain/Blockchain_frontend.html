@@ -1,0 +1,69 @@
+<!-- Button zum Abrufen der Blockchain -->
+<button id="fetch-blocks">Blockchain abrufen</button>
+<div id="blockchain-data"></div>
+<!-- Platzhalter für die Darstellung der Blockchain-Daten -->
+
+<!-- Eingabefeld und Button für das Hinzufügen neuer Blöcke -->
+<div>
+    <input type="text" id="new-block-data" placeholder="Daten für neuen Block">
+    <!-- Eingabefeld für die Daten des neuen Blocks -->
+    <button id="add-block">Neuen Block hinzufügen</button>
+    <!-- Button zum Hinzufügen eines neuen Blocks -->
+</div>
+
+<script>
+    // Blockchain abrufen
+    document.getElementById("fetch-blocks").addEventListener("click", function() {
+        fetch("https://192.168.1.116:5000/blocks") // Anfrage an die API, um die Blockchain abzurufen
+            .then(response => response.json()) // Antwort wird in JSON umgewandelt
+            .then(data => {
+                let html = ""; // Variable zur Speicherung der HTML-Daten
+                data.forEach(block => {
+                    html += `<div>
+                        <h3>Block ${block.index}</h3> <!-- Index des Blocks -->
+                        <p><strong>Timestamp:</strong> ${new Date(block.timestamp * 1000).toLocaleString()}</p>
+                        <!-- Zeitstempel des Blocks in lesbarem Format -->
+                        <p><strong>Data:</strong> ${block.data}</p> <!-- Blockdaten -->
+                        <p><strong>Hash:</strong> ${block.hash}</p> <!-- Hash des Blocks -->
+                        <p><strong>Previous Hash:</strong> ${block.previous_hash}</p> <!-- Hash des vorherigen Blocks -->
+                    </div><hr>`;
+                });
+                document.getElementById("blockchain-data").innerHTML = html;
+                // Aktualisierung des HTML-Inhalts mit den Blockchain-Daten
+            });
+    });
+
+    // Neuen Block hinzufügen
+    document.getElementById("add-block").addEventListener("click", function() {
+        const data = document.getElementById("new-block-data").value;
+        // Daten aus dem Eingabefeld abrufen
+
+        if (!data) { // Überprüfung, ob Daten eingegeben wurden
+            alert("Bitte geben Sie Daten für den neuen Block ein!");
+            return;
+        }
+
+        fetch("https://192.168.1.116:5000/add_block", {
+            method: "POST", // HTTP-Methode POST für das Hinzufügen eines neuen Blocks
+            headers: {
+                "Content-Type": "application/json" // Header für JSON-Daten
+            },
+            body: JSON.stringify({ data: data }) // Blockdaten im JSON-Format senden
+        })
+        .then(response => {
+            if (!response.ok) { // Fehlerüberprüfung der Antwort
+                throw new Error("Fehler beim Hinzufügen des Blocks!");
+            }
+            return response.json(); // Antwort in JSON umwandeln
+        })
+        .then(result => {
+            alert(result.message); // Erfolgsnachricht anzeigen
+            document.getElementById("new-block-data").value = ""; // Eingabefeld zurücksetzen
+            document.getElementById("fetch-blocks").click(); // Blockchain neu abrufen
+        })
+        .catch(error => {
+            console.error("Fehler:", error); // Fehler in der Konsole anzeigen
+            alert("Block konnte nicht hinzugefügt werden."); // Fehlermeldung anzeigen
+        });
+    });
+</script>

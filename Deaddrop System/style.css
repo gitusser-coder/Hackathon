@@ -1,0 +1,22 @@
+form {
+    background: #808080;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+input[type="file"] {
+    margin-bottom: 15px;
+}
+button {
+    background: #0073aa;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #005177;
+}
