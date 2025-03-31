@@ -10,7 +10,7 @@
   * Finn Schmitz, 000000, Backend, Honeypot, dokumentiert             
   * Shpend Shaqitira, 000000, Login-System, Token-System, Backend, dokumentiert und formatiert      
   * Melissa Gehl, 00000, Design von der Website, Implementierung von Deaddrop-System, Kalender und Forum, dokumentiert 
-  * Darius Haghighi Najafabadi, 1349455, Projektleiter, Backend, Frontend, Blockchain, Apache2, MariaDB, Wordpress, SSH, Killswitch, dokumentiert und formatiert
+  * Darius Haghighi Najafabadi, 1369455, Projektleiter, Backend, Frontend, Blockchain, Apache2, MariaDB, Wordpress, SSH, Killswitch, dokumentiert und formatiert
   * Jakub Kämmer, 00000, Backend, Honeypot, SSH, Killswitch, dokumentiert und formatiert
 
 -----------------------
