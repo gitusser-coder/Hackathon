@@ -1,0 +1,46 @@
+sudo apt update && sudo apt upgrade -y (System aktualisieren)
+
+sudo apt install git python3 python3-venv python3-pip libssl-dev libffi-dev build-essential -y (Pakete installieren)
+
+git clone https://github.com/cowrie/cowrie.git (Cowrie von GitHub herunterladen)
+
+cd cowrie (in Verzeichnis cowrie gehen)
+
+python3 -m venv cowrie-env (virtuelle Umgebung für cowrie erstellen)
+
+source cowrie-env/bin/activate (diese aktivieren)
+
+pip install --upgrade pip
+pip install -r requirements.txt  (cowrie spezifischen python Abhängigkeiten installieren)
+
+cp etc/cowrie.cfg.dist etc/cowrie.cfg  (Erstellung von benutzerdefinierter Konfi Datei)
+
+nano etc/cowrie.cfg  (konfi Datei bearbeiten und einrichten)
+
+#### listen_endpoints = tcp:22:interface=0.0.0.0  (damit cowrie auf den Port lauschen kann vom Produktivsystem)
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 (falls echter SSH Dienst noch aktiv ist Port ändern bsp 22222 und eine Portweiterleitung einrichten)
+
+
+root:toor:Root User
+admin:admin123:Administrator
+web:password:Web Server User   (damit kann man iun etc/userdb.txt zugangsdaten fälschen)
+
+
+hostname = your-webserver  (Hostnamen anpassen damit cowrie wie ein echter Server wirkt)
+
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination <VM-IP>:22 (um Verbindungen an die VM zu leiten)
+
+
+
+
+
+bin/cowrie start (cowrie starten)
+
+
+
+bin/cowrie Status (checken obs korrekt läuft)
+
+tail -f var/log/cowrie/cowrie.log (Logs überwachen)  cat var/log/cowrie/cowrie.json
+
+
